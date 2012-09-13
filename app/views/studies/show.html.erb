@@ -1,0 +1,12 @@
+<% provide(:title, @study.name) %>
+<div>
+	<%= render 'study_info' %>
+</div>
+<div>
+	<div>
+		<ul>
+			<%= render @findings %>
+		</ul>
+	</div>
+	<%= will_paginate @findings %>
+</div>

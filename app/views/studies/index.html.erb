@@ -1,0 +1,12 @@
+<% provide(:title, 'All studies') %>
+<h1>All studies</h1>
+
+<div><%= will_paginate %></div>
+
+<div>
+	<ul class="studies">
+  	<%= render @studies %>
+	</ul>
+</div>
+
+<%= will_paginate %>

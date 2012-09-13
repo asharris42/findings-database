@@ -7,4 +7,9 @@ module ApplicationHelper
       "#{base_title} | #{page_title}"
     end
   end
+
+  def current_study
+  	#need some code to identify current study?
+  	
+  end
 end
