@@ -2,10 +2,10 @@
 <html>
 <head>
   <title><%= full_title(yield(:title)) %></title>
+  <%= render 'layouts/osd_css' %>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-  <%= render 'layouts/osd_css' %>
 </head>
 <body class="col no-sidebar">
 	<div class="container">

@@ -1,6 +1,34 @@
-<h1>
-	<%= @study.name %>
-</h1>
-<div>
-	Study Date: <%= @study.date %>
+<h1><%= @study.name %></h1>
+
+<div class="border-box gray">
+	<div class="border-box-content">
+		<div class="border-box white">
+			<div class="border-box-content">
+				<p>
+					<strong>Date: </strong><%= @study.date %>
+				</p>
+				<p>
+					<strong>Product: </strong><%= @study.product %>
+				</p>
+				<p>
+					<strong>Platform: </strong><%= @study.platform %>
+				</p>
+				<p>
+					<strong>Description: </strong><%= @study.description %>
+				</p>
+				<p>
+					<strong>Participants: </strong><%= @study.participants %>
+				</p>
+				<p>
+					<strong>Researcher: </strong><%= @study.researcher %>
+				</p>
+				<p>
+					<strong>Designer: </strong><%= @study.designer %>
+				</p>
+				<p>
+					<strong>Presentation: </strong><%= @study.presentation %>
+				</p>
+			</div>
+		</div>
+	</div>
 </div>

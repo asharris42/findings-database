@@ -3,7 +3,7 @@ namespace :db do
   task populate: :environment do
     30.times do |n|
       name  = Faker::Name.name
-      date = "01/01/2010"
+      date = "#{n+1}/01/2010"
       product  = "GoToMyPC"
       platform = "iPhone"
       Study.create!(name: name,

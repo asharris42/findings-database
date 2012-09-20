@@ -4,4 +4,5 @@ class Finding < ActiveRecord::Base
 
   validates :study_id, presence: true
   default_scope order: 'findings.id ASC'
+
 end

@@ -4,4 +4,8 @@ class StaticPagesController < ApplicationController
 
   def help
   end
+
+  def findings
+  	@studies = Study.paginate(page: params[:page])
+  end
 end

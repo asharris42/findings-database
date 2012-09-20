@@ -7,4 +7,5 @@ class Study < ActiveRecord::Base
   validates :date, presence: true
   validates :product, presence: true
   validates :platform, presence: true
+  default_scope order: 'studies.date DESC'
 end

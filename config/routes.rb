@@ -1,12 +1,14 @@
 FindingsDatabase::Application.routes.draw do
   resources :studies
   resources :findings
+  resources :searches
 
 
   root to: 'static_pages#home'
 
   match '/help', to: 'static_pages#help'
   match '/create', to: 'studies#new'
+  match '/findings_search', to: 'static_pages#findings'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

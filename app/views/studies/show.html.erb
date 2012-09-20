@@ -1,12 +1,11 @@
 <% provide(:title, @study.name) %>
-<div>
-	<%= render 'study_info' %>
-</div>
-<div>
-	<div>
-		<ul>
-			<%= render @findings %>
+<%= render 'study_info' %>
+<div class="table-data">
+	<div class="table-data-content">
+		<ul class="table-data-header">
+			<li class="column-24">Findings</li>
 		</ul>
+		<%= render @findings %>
 	</div>
-	<%= will_paginate @findings %>
 </div>
+<%= will_paginate @findings %>
