@@ -1,11 +1,22 @@
 <% provide(:title, @study.name) %>
+
+<h1><%= @study.name %></h1>
+
+<div class="btn-right">
+	<%= link_to(edit_study_path(@study), :class=> 'symphony') do %>
+    <div class="btn-bg">
+        <b class="icon edit-meeting"></b>
+        <span>Edit Study</span>
+    </div>
+  <% end %>
+</div>
 <%= render 'study_info' %>
 <div class="table-data">
 	<div class="table-data-content">
 		<ul class="table-data-header">
 			<li class="column-24">Findings</li>
 		</ul>
-		<%= render @findings %>
+		<%= render 'findings/study_finding_rows' %>
 	</div>
 </div>
 <%= will_paginate @findings %>

@@ -1,3 +1,5 @@
 <ul class="table-data-row">
-	<li class="column-24"><%= finding.content %></li>
+	<li class="column-7 study"><%= link_to finding.study.name, finding.study %></li>
+	<li class="column-15 finding"><%= finding.content %></li>
+	<li class="column-2"><%= finding.study_id %></li>
 </ul>

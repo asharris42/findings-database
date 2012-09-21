@@ -1,11 +1,9 @@
-<h1><%= @study.name %></h1>
-
 <div class="border-box gray">
 	<div class="border-box-content">
 		<div class="border-box white">
 			<div class="border-box-content">
 				<p>
-					<strong>Date: </strong><%= @study.date %>
+					<strong>Date: </strong><%= @study.date.strftime("%m/%d/%Y") %>
 				</p>
 				<p>
 					<strong>Product: </strong><%= @study.product %>

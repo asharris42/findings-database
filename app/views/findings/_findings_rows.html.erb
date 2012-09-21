@@ -2,7 +2,7 @@
     <% study.findings.each do |finding| %>
     	<ul class="table-data-row">
 			<li class="column-4"><%= link_to study.name, study %></li>
-			<li class="column-3"><%= study.date %></li>
+			<li class="column-3"><%= study.date.strftime("%m/%d/%Y") %></li>
 			<li class="column-14"><%= finding.content %></li>
 			<li class="column-3"></li>
 		</ul>

@@ -1,3 +1,11 @@
+<% provide(:title, 'Search Results') %>
 <h1>Search Results</h1>
-
-<%= render @search.findings %>
+<div class="table-data">
+	<div class="table-data-content">
+		<ul class="table-data-header">
+			<li class="column-7"><a class="sorter" id="study">Study</a></li>
+			<li class="column-17"><a class="sorter" id="finding">Findings</a></li>
+		</ul>
+		<%= render @search.findings %>
+	</div>
+</div>

@@ -1,20 +1,32 @@
+<% provide(:title, 'Search Findings') %>
+<h1>Search the Findings Database</h1>
 <%= form_for @search do |f| %>
-  <div class="field">
-    <%= f.label :description %><br />
+  <div class="form-row">
+    <%= f.label :description %>
     <%= f.text_field :description %>
   </div>
-  <div class="field">
-    <%= f.label :product %><br />
-    <%= f.text_field :product %>
+  <div class="form-row">
+    <div class="form-row-column column-11">
+      <%= f.label :product %>
+      <%= f.text_field :product %>
+    </div>
+    <div class="form-row-column column-11 push-2">
+      <%= f.label :platform %>
+      <%= f.text_field :platform %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :platform %><br />
-    <%= f.text_field :platform %>
+  <div class="form-row">
+    <div class="form-row-column column-11">
+      <%= f.label :study %>
+      <%= f.text_field :study %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :study %><br />
-    <%= f.text_field :study %>
+  <div class="form-row">
+    <div class="symphony">
+      <div class="btn-bg">
+        <%= f.submit "Search" %>
+      </div>
+    </div>
   </div>
-  <div class="actions"><%= f.submit "Search" %></div>
 <% end %>
 

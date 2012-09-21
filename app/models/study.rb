@@ -8,4 +8,11 @@ class Study < ActiveRecord::Base
   validates :product, presence: true
   validates :platform, presence: true
   default_scope order: 'studies.date DESC'
+
+  define_index do
+    indexes :name, :sortable => true
+    indexes platform, :sortable => true
+    indexes product, :sortable => true
+    indexes :id, :sortable => true
+	end
 end

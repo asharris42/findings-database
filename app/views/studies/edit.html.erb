@@ -1,0 +1,60 @@
+<% provide(:title, "Edit Study") %> 
+<h1>Update Study</h1>
+
+<%= form_for(@study) do |f| %>
+
+<div class="form-row">
+  <div class="form-row-column column-11">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="form-row-column column-11 push-2">
+    <%= f.label :date %>
+    <%= f.text_field :date %>
+  </div>
+</div>
+<div class="form-row">
+  <div class="form-row-column column-11">
+    <%= f.label :product %>
+    <%= f.text_field :product %>
+  </div>
+  <div class="form-row-column column-11 push-2">
+    <%= f.label :platform %>
+    <%= f.text_field :platform %>
+  </div>
+</div>
+<div class="form-row">
+  <div class="form-row-column column-11">
+    <%= f.label :description %>
+    <%= f.text_area :description, :size => "60x12" %>
+  </div>
+  <div class="form-row-column column-11 push-2">
+    <%= f.label :participants %>
+    <%= f.text_area :participants, :size => "60x12" %>
+  </div>
+</div>
+<div class="form-row">
+  <div class="form-row-column column-11">
+    <%= f.label :researcher %>
+    <%= f.text_field :researcher %>
+  </div>
+  <div class="form-row-column column-11 push-2">
+    <%= f.label :designer %>
+    <%= f.text_field :designer %>
+  </div>
+</div>
+<div class="form-row">
+  <div class="form-row-column column-24">
+    <%= f.label :presentation %>
+    <%= f.text_field :presentation %>
+  </div>
+</div>
+<div class="form-row">
+  <div class="symphony">
+    <div class="btn-bg">
+      <%= f.submit "Save changes", class: "btn-bg" %>
+    </div>
+  </div>
+</div>
+
+<% end %>

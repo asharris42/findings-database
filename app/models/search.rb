@@ -17,7 +17,8 @@ class Search < ActiveRecord::Base
   		study.id
   	end
 
-  	found_findings = Finding.where(:study_id => found_study_ids).where("content like ?", "%#{description}%")
+  	found_findings = Finding.where(:study_id => found_study_ids).
+      where("content like ?", "%#{description}%").find(:all, :order => "study_id ASC")
 		
   	found_findings
 	end

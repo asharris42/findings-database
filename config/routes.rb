@@ -8,7 +8,7 @@ FindingsDatabase::Application.routes.draw do
 
   match '/help', to: 'static_pages#help'
   match '/create', to: 'studies#new'
-  match '/findings_search', to: 'static_pages#findings'
+  match '/all_findings', to: 'static_pages#findings'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
