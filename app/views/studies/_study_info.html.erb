@@ -6,10 +6,28 @@
 					<strong>Date: </strong><%= @study.date.strftime("%m/%d/%Y") %>
 				</p>
 				<p>
-					<strong>Product: </strong><%= @study.product %>
+					<strong>Product: </strong>
+					<% product_text = "" %>
+					<% @study.products.each do |product| %>
+						<% if product_text.empty? %>
+							<% product_text = product.product_name %>
+						<% else %>
+							<% product_text = product_text << "; " << product.product_name %>
+						<% end %>
+					<% end %>
+					<%= product_text %>
 				</p>
 				<p>
-					<strong>Platform: </strong><%= @study.platform %>
+					<strong>Platform: </strong>
+					<% platform_text = "" %>
+					<% @study.platforms.each do |platform| %>
+						<% if platform_text.empty? %>
+							<% platform_text = platform.platform_name %>
+						<% else %>
+							<% platform_text = platform_text << "; " << platform.platform_name %>
+						<% end %>
+					<% end %>
+					<%= platform_text %>
 				</p>
 				<p>
 					<strong>Description: </strong><%= @study.description %>

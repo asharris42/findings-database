@@ -1,0 +1,89 @@
+<%= form_for(@study) do |f| %>
+
+<div class="form-row">
+  <div class="form-row-column column-11">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="form-row-column column-11 push-2">
+    <%= f.label :date %>
+    <div class="form-row-column column-11">
+      <%= f.text_field :date, :id => "studyDate", :readonly => true, :title => "Choose a date", 'data-cal-header' => 'Choose a date:' %>
+    </div>
+  </div>
+</div>
+<div class="form-row">
+  <div class="form-row-column column-11">
+    <%= f.label :product %>
+    <%= f.collection_select(:product_ids, @products,:id,:product_name, {}, {:multiple => true})%>
+  </div>
+  <div class="form-row-column column-11 push-2">
+    <%= f.label :platform_ids, "Platform" %>
+    <%= f.collection_select(:platform_ids, @platforms,:id,:platform_name, {}, {:multiple => true})%>
+  </div>
+</div>
+<div class="form-row">
+  <div class="form-row-column column-11">
+    <%= f.label :description %>
+    <%= f.text_area :description, :size => "60x12" %>
+  </div>
+  <div class="form-row-column column-11 push-2">
+    <%= f.label :participants %>
+    <%= f.text_area :participants, :size => "60x12" %>
+  </div>
+</div>
+<div class="form-row">
+  <div class="form-row-column column-11">
+    <%= f.label :researcher %>
+    <%= f.text_field :researcher %>
+  </div>
+  <div class="form-row-column column-11 push-2">
+    <%= f.label :designer %>
+    <%= f.text_field :designer %>
+  </div>
+</div>
+<div class="form-row">
+  <div class="form-row-column column-24">
+    <%= f.label :presentation %>
+    <%= f.text_field :presentation %>
+  </div>
+</div>
+
+<div class="form-row">
+  <div class="form-row-column column-24">
+    <label for="findings">Findings</label>
+  </div>
+</div>
+
+<%= f.fields_for :findings do |builder| %>
+  <%= render 'finding_fields', f: builder %>
+<% end %>
+
+<div class="form-row">
+  <div class="form-row-column column-24">
+    <%= link_to_add_fields "Add Finding", f, :findings %>
+  </div>
+</div>
+
+<% if request.fullpath.include? "new" %>
+<% else %>
+  <div class="form-row">
+    <div class="form-row-column column-24">
+      <%= link_to 'Remove Study', @study, :confirm=> 'Are you sure?', :method=> :delete %>
+    </div>
+  </div>
+<% end %>
+
+<div class="form-row">
+  <div class="symphony">
+    <div class="btn-bg">
+      <% if request.fullpath.include? "new" %>
+        <%= f.submit "Create study", class: "btn-bg" %>
+      <% else %>
+        <%= f.submit "Save changes", class: "btn-bg" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<% end %>

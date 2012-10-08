@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120920165634) do
+ActiveRecord::Schema.define(:version => 20120926223134) do
 
   create_table "findings", :force => true do |t|
     t.text     "content"
@@ -21,6 +21,30 @@ ActiveRecord::Schema.define(:version => 20120920165634) do
   end
 
   add_index "findings", ["study_id", "content"], :name => "index_findings_on_study_id_and_content"
+
+  create_table "platforms", :force => true do |t|
+    t.string   "platform_name"
+    t.text     "description"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "platforms_studies", :id => false, :force => true do |t|
+    t.integer "platform_id"
+    t.integer "study_id"
+  end
+
+  create_table "products", :force => true do |t|
+    t.string   "product_name"
+    t.text     "description"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "products_studies", :id => false, :force => true do |t|
+    t.integer "product_id"
+    t.integer "study_id"
+  end
 
   create_table "searches", :force => true do |t|
     t.string   "description"
@@ -35,8 +59,6 @@ ActiveRecord::Schema.define(:version => 20120920165634) do
   create_table "studies", :force => true do |t|
     t.string   "name"
     t.date     "date"
-    t.string   "product"
-    t.string   "platform"
     t.text     "description"
     t.text     "participants"
     t.string   "presentation"
@@ -46,9 +68,8 @@ ActiveRecord::Schema.define(:version => 20120920165634) do
     t.datetime "updated_at",   :null => false
   end
 
+  add_index "studies", ["created_at"], :name => "index_studies_on_created_at"
   add_index "studies", ["date"], :name => "index_studies_on_date"
   add_index "studies", ["name"], :name => "index_studies_on_name", :unique => true
-  add_index "studies", ["platform"], :name => "index_studies_on_platform"
-  add_index "studies", ["product"], :name => "index_studies_on_product"
 
 end

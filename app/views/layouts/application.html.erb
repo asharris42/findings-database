@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-GB">
 <head>
   <title><%= full_title(yield(:title)) %></title>
   <%= render 'layouts/osd_css' %>
+  <%= render 'layouts/osd_js' %>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+
   <%= csrf_meta_tags %>
 </head>
 <body class="col no-sidebar">
@@ -18,6 +20,5 @@
 		</div>
 		<%= render 'layouts/footer' %>
 	</div>
-	<%= render 'layouts/osd_js' %>
 </body>
 </html>

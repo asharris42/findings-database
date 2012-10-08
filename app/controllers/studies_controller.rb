@@ -3,6 +3,8 @@ class StudiesController < ApplicationController
 
   def new
   	@study = Study.new
+    @products = Product.all
+    @platforms = Platform.all
   end
 
   def create
@@ -11,6 +13,8 @@ class StudiesController < ApplicationController
   		flash[:success] = "New study created!"
   		redirect_to @study
   	else
+      @products = Product.all
+      @platforms = Platform.all
   		render 'new'
   	end
   end
@@ -23,15 +27,17 @@ class StudiesController < ApplicationController
   def destroy
   	Study.find(params[:id]).destroy
   	flash[:success] = "Study deleted."
-  	redirect_to root_path
+  	redirect_to studies_path
   end
 
   def index
-  	@studies = Study.paginate(page: params[:page])
+  	@studies = Study.by_date.paginate(page: params[:page])
   end
 
   def edit
     @study = Study.find(params[:id])
+    @products = Product.all
+    @platforms = Platform.all
   end
 
   def update
@@ -40,6 +46,8 @@ class StudiesController < ApplicationController
       flash[:success] = "Profile updated"
       redirect_to @study
     else
+      @products = Product.all
+      @platforms = Platform.all
       render 'edit'
     end
   end

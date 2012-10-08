@@ -2,6 +2,8 @@ class SearchesController < ApplicationController
 
 	def new
   	@search = Search.new
+    @platforms = Platform.all
+    @products = Product.all
 	end
 
 	def create
