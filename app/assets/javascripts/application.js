@@ -14,4 +14,7 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require jquery.multiselect
+//= require jquery.opensource
+//= require jquery.tinysort
+//= require jquery.tinysort.charorder
 //= require_tree .
