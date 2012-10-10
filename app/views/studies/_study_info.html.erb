@@ -41,9 +41,12 @@
 				<p>
 					<strong>Designer: </strong><%= @study.designer %>
 				</p>
-				<p>
-					<strong>Presentation: </strong><%= @study.presentation %>
-				</p>
+				<% if @study.presentation_url.nil? %>
+				<% else %>
+					<p>
+						<strong><%= link_to "Download Presentation", @study.presentation_url.to_s %></strong>
+					</p>
+				<% end %>
 			</div>
 		</div>
 	</div>

@@ -88,3 +88,12 @@
 .recent {
   max-width:350px;
 }
+
+.field_with_errors input {
+  background-color: #FFF0F0;
+  border: 1px solid #CC0000;
+}
+
+.sorter {
+  cursor: pointer;
+}

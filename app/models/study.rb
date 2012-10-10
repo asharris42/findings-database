@@ -4,6 +4,7 @@ class Study < ActiveRecord::Base
   has_many :findings, dependent: :destroy
   has_and_belongs_to_many :products
   has_and_belongs_to_many :platforms
+  mount_uploader :presentation, PresentationUploader
 
   accepts_nested_attributes_for :findings, allow_destroy: true
 

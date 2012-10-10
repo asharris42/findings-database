@@ -3,7 +3,7 @@
 		<fieldset>
   		<%= f.text_field :content, :class => "finding" %>
   		<%= f.hidden_field :_destroy %>
-  		<%= link_to "remove", '#', class: "remove_fields" %>
+  		<%= link_to content_tag(:div, "", :class => 'remove_finding'), '#', class: "remove_fields" %>
 		</fieldset>
 	</div>
 </div>

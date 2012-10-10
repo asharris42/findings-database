@@ -1,5 +1,5 @@
-<%= form_for(@study) do |f| %>
-
+<%= form_for @study, :html => {:multipart => true} do |f| %>
+<%= render 'shared/error_messages' %>
 <div class="form-row">
   <div class="form-row-column column-11">
     <%= f.label :name %>
@@ -45,28 +45,33 @@
 <div class="form-row">
   <div class="form-row-column column-24">
     <%= f.label :presentation %>
-    <%= f.text_field :presentation %>
-  </div>
-</div>
-
-<div class="form-row">
-  <div class="form-row-column column-24">
-    <label for="findings">Findings</label>
-  </div>
-</div>
-
-<%= f.fields_for :findings do |builder| %>
-  <%= render 'finding_fields', f: builder %>
-<% end %>
-
-<div class="form-row">
-  <div class="form-row-column column-24">
-    <%= link_to_add_fields "Add Finding", f, :findings %>
+    <% if @study.presentation_url.nil? %>
+      <%= f.file_field :presentation %>
+    <% else %>
+      Current Presentation: <%= link_to @study.presentation_url.split("/").last, @study.presentation_url.to_s %><br />
+      <%= f.file_field :presentation %>
+    <% end %>
   </div>
 </div>
 
 <% if request.fullpath.include? "new" %>
 <% else %>
+  <div class="form-row">
+    <div class="form-row-column column-24">
+      <label for="findings">Findings</label>
+    </div>
+  </div>
+
+  <%= f.fields_for :findings do |builder| %>
+    <%= render 'finding_fields', f: builder %>
+  <% end %>
+
+  <div class="form-row">
+    <div class="form-row-column column-24">
+      <%= link_to_add_fields "Add Finding", f, :findings %>
+    </div>
+  </div>
+
   <div class="form-row">
     <div class="form-row-column column-24">
       <%= link_to 'Remove Study', @study, :confirm=> 'Are you sure?', :method=> :delete %>
