@@ -12,6 +12,13 @@
 <body class="col no-sidebar">
 	<div class="container">
 		<%= render 'layouts/header' %>
+		<% flash.each do |key, value| %>
+      <div class="message-banner <%= key %>-banner sheet hide">
+      	<div class="banner-content">
+      		<%= content_tag(:p, value) %>
+      	</div>
+      </div>
+    <% end %>
     <div class="container-content">
     	<div class="main">
 				<%= yield %>
@@ -19,6 +26,7 @@
 			<div class="clear-both"></div>
 		</div>
 		<%= render 'layouts/footer' %>
+		<%= debug(params) if Rails.env.development? %>
 	</div>
 </body>
 </html>

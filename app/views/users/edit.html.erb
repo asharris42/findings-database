@@ -1,0 +1,43 @@
+<% provide(:title, 'Edit User Settings') %>
+
+    <%= form_for(@user) do |f| %>
+      <%= render 'shared/user_error_messages' %>
+
+      <div class="form-row">
+        <div class="form-row-column column-12">
+          <%= f.label :name %>
+          <%= f.text_field :name, class: "focus" %>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-row-column column-12">
+          <%= f.label :email %>
+          <%= f.text_field :email %>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-row-column column-12">
+          <%= f.label :password %>
+          <%= f.password_field :password %>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-row-column column-12">
+          <%= f.label :password_confirmation, "Confirm Password" %>
+          <%= f.password_field :password_confirmation %>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-row-column column-12">
+          <div class="symphony">
+            <div class="btn-bg">
+              <%= f.submit "Save changes" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>

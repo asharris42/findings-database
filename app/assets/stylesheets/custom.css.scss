@@ -1,3 +1,9 @@
+@mixin box_sizing {
+  /*-moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+  box-sizing: border-box;*/
+}
+
 .pagination ul > li {
   display: inline;
 }
@@ -85,7 +91,13 @@
   max-width: 760px;
 }
 
+.home-content {
+  float:left;
+  max-width: 450px;
+}
+
 .recent {
+  float:right;
   max-width:350px;
 }
 
@@ -96,4 +108,12 @@
 
 .sorter {
   cursor: pointer;
+}
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
 }

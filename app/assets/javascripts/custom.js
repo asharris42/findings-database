@@ -29,4 +29,8 @@ $(document).ready(function() {
 		$('#study').addClass('sort').addClass('desc');
 	}
 
+    $(".confirmation-banner, .information-banner, .error-banner, .warning-banner").animateMessage();
+
+    $('.focus').focus();
+
 });

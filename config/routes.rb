@@ -1,14 +1,20 @@
 FindingsDatabase::Application.routes.draw do
+  get "users/new"
+
   resources :studies
   resources :findings
   resources :searches
-
+  resources :users
+  resources :sessions, only: [:new, :create, :destroy]
 
   root to: 'static_pages#home'
 
   match '/help', to: 'static_pages#help'
   match '/create', to: 'studies#new'
   match '/all_findings', to: 'static_pages#findings'
+  match '/signup', to: 'users#new'
+  match '/signin', to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy', via: :delete
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

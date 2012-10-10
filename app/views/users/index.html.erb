@@ -1,0 +1,34 @@
+<% provide(:title, 'Users') %>
+
+<h1>Users</h1>
+
+<% if current_user.admin? %>
+	<div class="btn-right">
+		<a href="<%= new_user_path %>" class="symphony">
+  		<div class="btn-bg">
+    		<b class="icon add-user"></b>
+    		<span>New User</span>
+  		</div>
+		</a>
+	</div>
+<% end %>
+
+<div class="table-data">
+	<div class="table-data-content">
+		<% @users.each do |user| %>
+    	<ul class="table-data-row">
+    		<li class="column-20"><%= link_to user.name, user %></li>
+    		<li class="column-4">
+    			<% if current_user.admin? || current_user?(user) %>
+    				<%= link_to "Edit", edit_user_path(user) %>
+    			<% end %>
+    			<% if current_user.admin? && !current_user?(user) %>
+    				| <%= link_to "Delete", user, method: :delete, data: { confirm: "You sure?" } %>
+  				<% end %>
+  			</li>
+    	</ul>
+  	<% end %>
+  </div>
+</div>
+
+<%= will_paginate %>

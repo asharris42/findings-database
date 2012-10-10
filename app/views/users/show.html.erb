@@ -1,0 +1,12 @@
+<%= @user.name %>, <%= @user.email %>
+
+<% if current_user.admin? || current_user?(@user) %>
+	<div class="btn-right">
+		<a href="<%= edit_user_path(@user) %>" class="symphony">
+  		<div class="btn-bg">
+    		<b class="icon edit-meeting"></b>
+    		<span>Edit User</span>
+  		</div>
+		</a>
+	</div>
+<% end %>

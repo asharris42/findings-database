@@ -29,5 +29,10 @@ namespace :db do
       content = Faker::Lorem.sentence(5)
       studies.each { |study| study.findings.create!(content: content) }
     end
+
+    admin = User.create!(name: "Andrew Harris", email: "andrew.harris@citrix.com", 
+            password: "test1234", password_confirmation: "test1234")
+    admin.toggle!(:admin)
+
   end
 end

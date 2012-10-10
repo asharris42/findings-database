@@ -1,5 +1,6 @@
 class FindingsController < ApplicationController
-  
+  before_filter :signed_in_user, only: [:create, :destroy]
+
   def create
 		@finding = current_study.findings.build(params[:finding])
     if @finding.save

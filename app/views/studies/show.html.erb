@@ -2,14 +2,16 @@
 
 <h1><%= @study.name %></h1>
 
-<div class="btn-right">
-	<%= link_to(edit_study_path(@study), :class=> 'symphony') do %>
-    <div class="btn-bg">
+<% if signed_in? %>
+	<div class="btn-right">
+		<%= link_to(edit_study_path(@study), :class=> 'symphony') do %>
+    	<div class="btn-bg">
         <b class="icon edit-meeting"></b>
-        <span>Edit Study</span>
-    </div>
-  <% end %>
-</div>
+       	<span>Edit Study</span>
+    	</div>
+  	<% end %>
+	</div>
+<% end %>
 <%= render 'study_info' %>
 <div class="table-data">
 	<div class="table-data-content">

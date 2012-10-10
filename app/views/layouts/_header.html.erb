@@ -9,7 +9,15 @@
       <%= nav_link "Studies", studies_path %>
       <%= nav_link "All Findings", all_findings_path %>
       <%= nav_link "Search Findings", new_search_path %>
-      <li class="last-child"><a href="/logout/link">Log Out</a></li>
+      <% if signed_in? %>
+        <% if current_user.admin? %>
+          <%= nav_link "Users", users_path %>
+        <% end %>
+        <li class="last-child"><%= link_to "Log Out", signout_path, method: "delete" %></li>
+      <% else %>
+        <li class="last-child"><%= link_to "Log In", signin_path %></li>
+      <% end %>
+      </li>
    	</ul>
   </div>
 </div>
