@@ -1,0 +1,29 @@
+<% provide(:title, 'New Product') %>
+<h1>New Product</h1>
+
+    <%= form_for(@product) do |f| %>
+
+      <div class="form-row">
+        <div class="form-row-column column-12">
+          <%= f.label :product_name %>
+          <%= f.text_field :product_name, class: "focus" %>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-row-column column-12">
+          <%= f.label :description %>
+          <%= f.text_field :description %>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-row-column column-12">
+          <div class="symphony">
+            <div class="btn-bg">
+              <%= f.submit "Create product" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>

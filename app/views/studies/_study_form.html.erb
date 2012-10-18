@@ -43,7 +43,11 @@
   </div>
 </div>
 <div class="form-row">
-  <div class="form-row-column column-24">
+  <div class="form-row-column column-11">
+    <%= f.label :activity_type %>
+    <%= f.collection_select(:activity_type_ids, @activity_types,:id,:type_name, {}, {:multiple => true})%>
+  </div>
+  <div class="form-row-column column-11 push-2">
     <%= f.label :presentation %>
     <% if @study.presentation_url.nil? %>
       <%= f.file_field :presentation %>

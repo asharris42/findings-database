@@ -3,8 +3,9 @@ class StudiesController < ApplicationController
 
   def new
   	@study = Study.new
-    @products = Product.all
-    @platforms = Platform.all
+    @products = Product.alphabetical
+    @platforms = Platform.alphabetical
+    @activity_types = ActivityType.alphabetical
   end
 
   def create
@@ -13,8 +14,9 @@ class StudiesController < ApplicationController
   		flash[:success] = "New study created!"
   		redirect_to @study
   	else
-      @products = Product.all
-      @platforms = Platform.all
+      @products = Product.alphabetical
+      @platforms = Platform.alphabetical
+      @activity_types = ActivityType.alphabetical
   		render 'new'
   	end
   end
@@ -38,6 +40,7 @@ class StudiesController < ApplicationController
     @study = Study.find(params[:id])
     @products = Product.all
     @platforms = Platform.all
+    @activity_types = ActivityType.all
   end
 
   def update
@@ -48,6 +51,7 @@ class StudiesController < ApplicationController
     else
       @products = Product.all
       @platforms = Platform.all
+      @activity_types = ActivityType.all
       render 'edit'
     end
   end

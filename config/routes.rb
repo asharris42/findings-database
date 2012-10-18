@@ -1,10 +1,19 @@
 FindingsDatabase::Application.routes.draw do
+  get "platforms/show"
+
+  get "products/show"
+
+  get "activity_types/new"
+
   get "users/new"
 
   resources :studies
   resources :findings
   resources :searches
   resources :users
+  resources :products
+  resources :platforms
+  resources :activity_types
   resources :sessions, only: [:new, :create, :destroy]
 
   root to: 'static_pages#home'

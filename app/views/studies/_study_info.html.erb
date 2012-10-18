@@ -30,6 +30,18 @@
 					<%= platform_text %>
 				</p>
 				<p>
+					<strong>Activity Type: </strong>
+					<% activity_type_text = "" %>
+					<% @study.activity_types.each do |activity_type| %>
+						<% if activity_type_text.empty? %>
+							<% activity_type_text = activity_type.type_name %>
+						<% else %>
+							<% activity_type_text = activity_type_text << "; " << activity_type.type_name %>
+						<% end %>
+					<% end %>
+					<%= activity_type_text %>
+				</p>
+				<p>
 					<strong>Description: </strong><%= @study.description %>
 				</p>
 				<p>

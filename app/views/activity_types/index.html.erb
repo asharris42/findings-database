@@ -1,0 +1,19 @@
+<% provide(:title, 'Activity Types') %>
+<h1>Activity Types</h1>
+
+<% if signed_in? %>
+	<div class="btn-right">
+		<a href="activity_types/new" class="symphony">
+  		<div class="btn-bg">
+    		<b class="icon add-user"></b>
+    		<span>New Activity Type</span>
+  		</div>
+		</a>
+	</div>
+<% end %>
+
+<div class="table-data">
+	<div class="table-data-content">
+  	<%= render @activity_types %>
+	</div>
+</div>

@@ -1,0 +1,22 @@
+<% provide(:title, @activity_type.type_name) %>
+
+<h1><%= @activity_type.type_name %></h1>
+
+<div class="border-box gray">
+	<div class="border-box-content">
+		<div class="border-box white">
+			<div class="border-box-content">
+				<p>
+					<strong>Description: </strong><%= @activity_type.description %>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="table-data">
+	<div class="table-data-content">
+		<%= render @studies %>
+	</div>
+</div>
+<%= will_paginate @studies %>

@@ -1,9 +1,10 @@
 class Study < ActiveRecord::Base
 # Need to handle case-insensitity of name uniqueness validation
-  attr_accessible :description, :designer, :participants, :presentation, :researcher, :date, :name, :product_ids, :platform_ids, :findings_attributes
+  attr_accessible :description, :designer, :participants, :presentation, :researcher, :date, :name, :product_ids, :platform_ids, :activity_type_ids, :findings_attributes
   has_many :findings, dependent: :destroy
   has_and_belongs_to_many :products
   has_and_belongs_to_many :platforms
+  has_and_belongs_to_many :activity_types
   mount_uploader :presentation, PresentationUploader
 
   accepts_nested_attributes_for :findings, allow_destroy: true

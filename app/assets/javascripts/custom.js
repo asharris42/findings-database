@@ -25,8 +25,8 @@ $(document).ready(function() {
 	}
 
 	if ($('.search-findings').length) {
-		$('div>ul.table-data-row').tsort('li.study', {order:'asc'});
-		$('#study').addClass('sort').addClass('desc');
+		$('div>ul.table-data-row').tsort('li.date', {order:'desc'});
+		$('#date').addClass('sort').addClass('asc');
 	}
 
     $(".confirmation-banner, .information-banner, .error-banner, .warning-banner").animateMessage();

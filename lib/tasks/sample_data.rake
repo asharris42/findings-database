@@ -15,13 +15,19 @@ namespace :db do
     Platform.create!(platform_name: "iPhone", description: "foo")
     Platform.create!(platform_name: "Android", description: "foo")
 
+    ActivityType.create!(type_name:"Customer Office Hours", description: "foo")
+    ActivityType.create!(type_name:"Usability Study", description: "foo")
+    ActivityType.create!(type_name:"RITE Method Test", description: "foo")
+    ActivityType.create!(type_name:"Ethnographic Study", description: "foo")
+
     30.times do |n|
       name  = Faker::Name.name
       date = "#{n+1}/01/2010"
       Study.create!(name: name,
                    date: date,
                    product_ids: rand(1..5),
-                   platform_ids: rand(1..7))
+                   platform_ids: rand(1..7),
+                   activity_type_ids: rand(1..4))
     end
 
     studies = Study.all(limit: 10)
