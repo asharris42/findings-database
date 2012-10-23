@@ -8,18 +8,9 @@ class Search < ActiveRecord::Base
 	private
 
 	def search_findings
-  	found_studies = Study.order(:date)
-  	found_studies = found_studies.where("name like ?", "%#{study}%")
-    found_studies = found_studies.includes(:products).where("products.product_name = ?", "#{product}") unless product.empty?
-    found_studies = found_studies.includes(:platforms).where("platforms.platform_name = ?", "#{platform}") unless platform.empty?
-  	
-  	found_study_ids = found_studies.each do |study|
-  		study.id
-  	end
+    found_findings = Finding.search "#{description}", :conditions => { :products => "#{product}" }, :per_page => 150
 
-  	found_findings = Finding.where(:study_id => found_study_ids).
-      where("content like ?", "%#{description}%").find(:all, :order => "study_id ASC")
-		
+  	
   	found_findings
 	end
 

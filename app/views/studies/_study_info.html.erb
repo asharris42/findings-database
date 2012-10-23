@@ -7,39 +7,42 @@
 				</p>
 				<p>
 					<strong>Product: </strong>
-					<% product_text = "" %>
+					<% first_product = true %>
 					<% @study.products.each do |product| %>
-						<% if product_text.empty? %>
-							<% product_text = product.product_name %>
+						<% if first_product %>
+							<%= link_to product.product_name, product %>
+							<% first_product = false %>
 						<% else %>
-							<% product_text = product_text << "; " << product.product_name %>
+							, 
+							<%= link_to product.product_name, product %>
 						<% end %>
 					<% end %>
-					<%= product_text %>
 				</p>
 				<p>
 					<strong>Platform: </strong>
-					<% platform_text = "" %>
+					<% first_platform = true %>
 					<% @study.platforms.each do |platform| %>
-						<% if platform_text.empty? %>
-							<% platform_text = platform.platform_name %>
+						<% if first_platform %>
+							<%= link_to platform.platform_name, platform %>
+							<% first_platform = false %>
 						<% else %>
-							<% platform_text = platform_text << "; " << platform.platform_name %>
+							, 
+							<%= link_to platform.platform_name, platform %>
 						<% end %>
 					<% end %>
-					<%= platform_text %>
 				</p>
 				<p>
 					<strong>Activity Type: </strong>
-					<% activity_type_text = "" %>
-					<% @study.activity_types.each do |activity_type| %>
-						<% if activity_type_text.empty? %>
-							<% activity_type_text = activity_type.type_name %>
+					<% first_type = true %>
+					<% @study.activity_types.each do |type| %>
+						<% if first_type %>
+							<%= link_to type.type_name, type %>
+							<% first_type = false %>
 						<% else %>
-							<% activity_type_text = activity_type_text << "; " << activity_type.type_name %>
+							, 
+							<%= link_to type.type_name, type %>
 						<% end %>
 					<% end %>
-					<%= activity_type_text %>
 				</p>
 				<p>
 					<strong>Description: </strong><%= @study.description %>

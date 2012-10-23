@@ -7,8 +7,7 @@
       <%= nav_link "Home", root_path %>
       <%= nav_link "Help", help_path %>
       <%= nav_link "Studies", studies_path %>
-      <%= nav_link "All Findings", all_findings_path %>
-      <%= nav_link "Search Findings", new_search_path %>
+      <%= nav_link "Search Findings", findings_path %>
       <% if signed_in? %>
         <% if current_user.admin? %>
           <%= nav_link "Users", users_path %>

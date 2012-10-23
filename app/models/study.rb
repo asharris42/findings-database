@@ -15,8 +15,11 @@ class Study < ActiveRecord::Base
   scope :recent, limit(5).order("created_at DESC")
 
   define_index do
-    indexes :name, :sortable => true
-    indexes :id, :sortable => true
+    indexes :name, :as => :study_name, :sortable => true
+    indexes products.product_name, :as => :products, :sortable => :true
+    indexes platforms.platform_name, :as => :platforms, :sortable => :true
+    indexes findings.content, :as => :findings, :sortable => :true
+    indexes activity_types.type_name, :as => :activity_types, :sortable => true
 	end
 
 end

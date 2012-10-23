@@ -1,5 +1,5 @@
 class ActivityTypesController < ApplicationController
-	before_filter :signed_in_user, only: [:edit, :update, :new, :create, :destroy, :index, :show]
+	before_filter :signed_in_user, only: [:edit, :update, :new, :create, :destroy]
 
   def new
     @activity_type = ActivityType.new

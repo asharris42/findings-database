@@ -30,6 +30,7 @@ GEM
       multi_json (~> 1.0)
     addressable (2.3.2)
     arel (3.0.2)
+    bcrypt-ruby (3.0.1)
     bcrypt-ruby (3.0.1-x86-mingw32)
     bootstrap-will_paginate (0.0.6)
       will_paginate
@@ -74,7 +75,10 @@ GEM
       railties (>= 3.0.0)
     faker (1.0.1)
       i18n (~> 0.4)
+    ffi (1.1.5)
     ffi (1.1.5-x86-mingw32)
+    gherkin (2.11.2)
+      json (>= 1.4.6)
     gherkin (2.11.2-x86-mingw32)
       json (>= 1.4.6)
     hike (1.2.1)
@@ -92,7 +96,9 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.19)
     multi_json (1.3.6)
+    nokogiri (1.5.5)
     nokogiri (1.5.5-x86-mingw32)
+    pg (0.12.2)
     pg (0.12.2-x86-mingw32)
     polyglot (0.3.3)
     rack (1.4.1)
@@ -149,7 +155,6 @@ GEM
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    sqlite3 (1.3.6-x86-mingw32)
     thinking-sphinx (2.0.10)
       activerecord (>= 3.0.3)
       builder (>= 2.1.2)
@@ -168,6 +173,7 @@ GEM
       nokogiri (~> 1.3)
 
 PLATFORMS
+  ruby
   x86-mingw32
 
 DEPENDENCIES
@@ -184,7 +190,6 @@ DEPENDENCIES
   rails (= 3.2.8)
   rspec-rails (= 2.11.0)
   sass-rails (~> 3.2.5)
-  sqlite3
   thinking-sphinx (= 2.0.10)
   uglifier (>= 1.2.3)
   will_paginate (= 3.0.3)

@@ -5,7 +5,7 @@ gem 'rails', '3.2.8'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+gem 'pg', '0.12.2'
 gem 'rspec-rails', '2.11.0'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'faker', '1.0.1'

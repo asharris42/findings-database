@@ -11,8 +11,8 @@
 			</ul>
 			<% for study in @recent_studies %>
 				<ul class="table-data-row">
-					<li class="column-6"><%= study.created_at.strftime("%m/%d/%Y") %></li>
-					<li class="column-18"><%= link_to study.name, study %></li>
+					<li class="column-4"><%= study.created_at.strftime("%m/%d") %></li>
+					<li class="column-20"><%= link_to study.name, study %></li>
 				</ul>
 			<% end %> 
 		</div>
