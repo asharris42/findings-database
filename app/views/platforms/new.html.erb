@@ -1,29 +1,4 @@
 <% provide(:title, 'New Platform') %>
 <h1>New Platform</h1>
 
-    <%= form_for(@platform) do |f| %>
-
-      <div class="form-row">
-        <div class="form-row-column column-12">
-          <%= f.label :platform_name %>
-          <%= f.text_field :platform_name, class: "focus" %>
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div class="form-row-column column-12">
-          <%= f.label :description %>
-          <%= f.text_field :description %>
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div class="form-row-column column-12">
-          <div class="symphony">
-            <div class="btn-bg">
-              <%= f.submit "Create platform" %>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% end %>
+    <%= render 'platform_form' %>

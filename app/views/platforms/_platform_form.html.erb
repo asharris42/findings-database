@@ -1,0 +1,30 @@
+<%= form_for(@platform) do |f| %>
+
+      <div class="form-row">
+        <div class="form-row-column column-12">
+          <%= f.label :platform_name %>
+          <%= f.text_field :platform_name, class: "focus" %>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-row-column column-12">
+          <%= f.label :description %>
+          <%= f.text_field :description %>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-row-column column-12">
+          <div class="symphony">
+            <div class="btn-bg">
+              <% if request.fullpath.include? "new" %>
+                <%= f.submit "Create platform" %>
+              <% else %>
+                <%= f.submit "Edit platform" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>

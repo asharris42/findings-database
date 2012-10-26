@@ -1,0 +1,30 @@
+<%= form_for(@activity_type) do |f| %>
+
+  <div class="form-row">
+    <div class="form-row-column column-12">
+      <%= f.label :type_name %>
+      <%= f.text_field :type_name, class: "focus" %>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-row-column column-12">
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-row-column column-12">
+      <div class="symphony">
+        <div class="btn-bg">
+          <% if request.fullpath.include? "new" %>
+            <%= f.submit "Create Activity Type" %>
+          <% else %>
+            <%= f.submit "Edit Activity Type" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

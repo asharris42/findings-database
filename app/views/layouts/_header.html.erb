@@ -9,6 +9,7 @@
       <%= nav_link "Studies", studies_path %>
       <%= nav_link "Search Findings", findings_path %>
       <% if signed_in? %>
+        <%= nav_link "Admin Panel", admin_panel_path %>
         <% if current_user.admin? %>
           <%= nav_link "Users", users_path %>
         <% end %>

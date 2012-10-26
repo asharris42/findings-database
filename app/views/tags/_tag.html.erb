@@ -1,0 +1,5 @@
+<ul class="table-data-row">
+  <li class="column-21"><%= link_to tag.tag_name, tag %></li>
+
+  <li class="column-3"><%= link_to "Edit", edit_tag_path(tag) %> | <%= link_to "Delete", tag, method: :delete, data: { confirm: "You sure?" } %></li>
+</ul>

@@ -1,18 +1,18 @@
-<% provide(:title, 'Platforms') %>
+<% provide(:title, 'Tags') %>
 
 <ul class="breadcrumb">
 	<li><%= link_to "Admin Panel", admin_panel_path %></li>
-	<li>Platforms</li>
+	<li>Tags</li>
 </ul>
 
-<h1>Platforms</h1>
+<h1>Tags</h1>
 
 <% if signed_in? %>
 	<div class="btn-right">
-		<a href="<%= new_platform_path %>" class="symphony">
+		<a href="<%= new_tag_path %>" class="symphony">
   		<div class="btn-bg">
     		<b class="icon add-user"></b>
-    		<span>New Platform</span>
+    		<span>New Tag</span>
   		</div>
 		</a>
 	</div>
@@ -20,6 +20,6 @@
 
 <div class="table-data">
 	<div class="table-data-content">
-  	<%= render @platforms %>
+  	<%= render @tags %>
 	</div>
 </div>

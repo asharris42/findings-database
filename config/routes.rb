@@ -14,6 +14,7 @@ FindingsDatabase::Application.routes.draw do
   resources :products
   resources :platforms
   resources :activity_types
+  resources :tags
   resources :sessions, only: [:new, :create, :destroy]
 
   root to: 'static_pages#home'
@@ -25,6 +26,7 @@ FindingsDatabase::Application.routes.draw do
   match '/signin', to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
   match '/finding_search', to: 'findings#search'
+  match '/admin_panel', to: 'static_pages#admin_panel'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

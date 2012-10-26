@@ -8,7 +8,7 @@ class ActivityTypesController < ApplicationController
   def create
     @activity_type = ActivityType.new(params[:activity_type])
     if @activity_type.save
-      flash[:confirmation] = "New activity type created!"
+      flash[:confirmation] = "#{@activity_type.type_name} created!"
       redirect_to activity_types_url
     else
       render 'new'
@@ -16,9 +16,17 @@ class ActivityTypesController < ApplicationController
   end
 
   def edit
+    @activity_type = ActivityType.find(params[:id])
   end
 
   def update
+    @activity_type = ActivityType.find(params[:id])
+    if @activity_type.update_attributes(params[:activity_type])
+      flash[:confirmation] = "#{@activity_type.type_name} updated."
+      redirect_to activity_types_url
+    else
+      render 'edit'
+    end
   end
 
   def show

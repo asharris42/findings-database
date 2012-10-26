@@ -8,7 +8,7 @@ class PlatformsController < ApplicationController
 	def create
 		@platform = Platform.new(params[:platform])
     if @platform.save
-      flash[:confirmation] = "New platform created!"
+      flash[:confirmation] = "#{@platform.platform_name} created!"
       redirect_to platforms_url
     else
       render 'new'
@@ -16,9 +16,17 @@ class PlatformsController < ApplicationController
 	end
 
 	def edit
-	end
+    @platform = Platform.find(params[:id])
+  end
 
-	def update
+  def update
+    @platform = Platform.find(params[:id])
+    if @platform.update_attributes(params[:platform])
+      flash[:confirmation] = "#{@platform.platform_name} updated."
+      redirect_to platforms_url
+    else
+      render 'edit'
+    end
 	end
 
   def show

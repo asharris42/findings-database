@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121017184332) do
+ActiveRecord::Schema.define(:version => 20121026163443) do
 
   create_table "activity_types", :force => true do |t|
     t.string   "type_name"
@@ -33,6 +33,11 @@ ActiveRecord::Schema.define(:version => 20121017184332) do
   end
 
   add_index "findings", ["study_id", "content"], :name => "index_findings_on_study_id_and_content"
+
+  create_table "findings_tags", :id => false, :force => true do |t|
+    t.integer "finding_id"
+    t.integer "tag_id"
+  end
 
   create_table "platforms", :force => true do |t|
     t.string   "platform_name"
@@ -83,6 +88,13 @@ ActiveRecord::Schema.define(:version => 20121017184332) do
   add_index "studies", ["created_at"], :name => "index_studies_on_created_at"
   add_index "studies", ["date"], :name => "index_studies_on_date"
   add_index "studies", ["name"], :name => "index_studies_on_name", :unique => true
+
+  create_table "tags", :force => true do |t|
+    t.string   "tag_name"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "name"

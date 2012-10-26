@@ -1,0 +1,22 @@
+<% provide(:title, @tag.tag_name) %>
+
+<h1><%= @tag.tag_name %></h1>
+
+<div class="border-box gray">
+	<div class="border-box-content">
+		<div class="border-box white">
+			<div class="border-box-content">
+				<p>
+					<strong>Description: </strong><%= @tag.description %>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="table-data">
+	<div class="table-data-content">
+		<%= render @findings %>
+	</div>
+</div>
+<%= will_paginate @findings %>

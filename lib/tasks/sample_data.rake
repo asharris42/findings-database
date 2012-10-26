@@ -20,6 +20,12 @@ namespace :db do
     ActivityType.create!(type_name:"RITE Method Test", description: "foo")
     ActivityType.create!(type_name:"Ethnographic Study", description: "foo")
 
+    Tag.create!(tag_name:"Buttons and Icons", description: "foo")
+    Tag.create!(tag_name:"Calendar Picker", description: "foo")
+    Tag.create!(tag_name:"Color Picker", description: "foo")
+    Tag.create!(tag_name:"Drop-Down Menus", description: "foo")
+    Tag.create!(tag_name:"Footer Templates", description: "foo")
+
     30.times do |n|
       name  = Faker::Name.name
       date = "#{n+1}/01/2010"

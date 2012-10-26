@@ -1,5 +1,10 @@
 <% provide(:title, 'Users') %>
 
+<ul class="breadcrumb">
+  <li><%= link_to "Admin Panel", admin_panel_path %></li>
+  <li>Users</li>
+</ul>
+
 <h1>Users</h1>
 
 <% if current_user.admin? %>
