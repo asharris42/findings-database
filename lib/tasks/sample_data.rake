@@ -26,7 +26,7 @@ namespace :db do
     Tag.create!(tag_name:"Drop-Down Menus", description: "foo")
     Tag.create!(tag_name:"Footer Templates", description: "foo")
 
-    30.times do |n|
+    10.times do |n|
       name  = Faker::Name.name
       date = "#{n+1}/01/2010"
       Study.create!(name: name,

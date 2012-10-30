@@ -13,6 +13,7 @@ class Study < ActiveRecord::Base
   validates :date, presence: true
   scope :by_date, order("date DESC")
   scope :recent, limit(5).order("created_at DESC")
+  scope :alphabetical, order("name ASC")
 
   define_index do
     indexes :name, :as => :study_name, :sortable => true

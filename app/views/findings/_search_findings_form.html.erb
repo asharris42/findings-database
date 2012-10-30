@@ -8,31 +8,56 @@
 
 	<div class="form-row">
   	<div class="form-row-column column-11">
-    	<%= label_tag :products %>
-    	<%= text_field_tag :products, params[:products] %>
+    	<%= label_tag :product %>
+      <%= collection_select(:product, :product_name, @products,:product_name,:product_name, {}, {:multiple => true})%>
     </div>
-    <div class="form-row-column column-11 push-2">
-    	<%= label_tag :platforms %>
-    	<%= text_field_tag :platforms, params[:platforms] %>
+    <div class="form-row-column column-10 push-2">
+      <%= label_tag :platform %>
+      <%= collection_select(:platform, :platform_name, @platforms,:platform_name,:platform_name, {}, {:multiple => true})%>
     </div>
   </div>
 
   <div class="form-row">
   	<div class="form-row-column column-11">
-    	<%= label_tag :study_name %>
-    	<%= text_field_tag :study_name, params[:study_name] %>
+      <%= label_tag :study %>
+      <%= collection_select(:study, :name, @study_names,:name,:name, {}, {:class => "studySearchSelect", :multiple => true})%>
     </div>
-    <div class="form-row-column column-11 push-2">
-    	<%= label_tag :tags %>
-    	<%= text_field_tag :tags, params[:tags] %>
+    <div class="form-row-column column-10 push-2">
+    	<%= label_tag :tag %>
+      <%= collection_select(:tag, :tag_name, @tags,:tag_name,:tag_name, {}, {:multiple => true})%>
     </div>
   </div>
 
   <div class="form-row">
-  	<div class="symphony">
-    	<div class="btn-bg">
-    		<%= submit_tag "Search", name: nil %>
-    	</div>
+    <div class="form-row-column column-11">
+      <%= label_tag :activity_type %>
+      <%= collection_select(:activity_type, :type_name, @activity_types,:type_name,:type_name, {}, {:multiple => true})%>
+    </div>
+    <div class="form-row-column column-5 push-2">
+      <div class="dateLabelArea">
+        <%= label_tag :start_date, "Start date", :class => "dateLabel" %> <a href="#" class="clearDateLink clearStartDateLink">Clear</a>
+      </div>
+      <div class="form-row-column column-20">
+        <%= text_field_tag :start_date, params[:start_date], :id => "studyStartDate", :readonly => true, :title => "Choose a date", 'data-cal-header' => 'Choose a date:' %>
+      </div>
+    </div>
+    <div class="form-row-column column-5 push-1">
+      <div class="dateLabelArea">
+        <%= label_tag :end_date, "End date", :class => "dateLabel" %> <a href="#" class="clearDateLink clearEndDateLink">Clear</a>
+      </div>
+      <div class="form-row-column column-20">
+        <%= text_field_tag :end_date, params[:end_date], :id => "studyEndDate", :readonly => true, :title => "Choose a date", 'data-cal-header' => 'Choose a date:' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-row-column form-right">
+  	  <div class="symphony">
+      	<div class="btn-bg">
+    		  <%= submit_tag "Search", name: nil %>
+    	  </div>
+      </div>
     </div>
   </div>
 <% end %>

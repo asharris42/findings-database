@@ -17,7 +17,7 @@
     <%= f.label :product %>
     <%= f.collection_select(:product_ids, @products,:id,:product_name, {}, {:multiple => true})%>
   </div>
-  <div class="form-row-column column-11 push-2">
+  <div class="form-row-column column-10 push-2">
     <%= f.label :platform_ids, "Platform" %>
     <%= f.collection_select(:platform_ids, @platforms,:id,:platform_name, {}, {:multiple => true})%>
   </div>

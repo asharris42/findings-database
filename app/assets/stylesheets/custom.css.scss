@@ -117,3 +117,21 @@
   margin-top: 45px;
   @include box_sizing;
 }
+
+.form-right {
+  padding-left: 89%
+}
+
+.dateLabel {
+  display: inline;
+  margin-bottom: 0px;
+}
+
+.clearDateLink {
+  font-size: 12px;
+}
+
+.dateLabelArea {
+  display: block;
+  margin-bottom: 2px;
+}
