@@ -25,8 +25,4 @@ module ApplicationHelper
     link_to(name, '#', class: "add_fields", data: {id: id, fields: fields.gsub("\n", "")})
   end
 
-  def current_study
-  	#need some code to identify current study?
-  	
-  end
 end

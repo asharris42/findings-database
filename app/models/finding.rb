@@ -12,7 +12,7 @@ class Finding < ActiveRecord::Base
 		indexes study.products.product_name, :as => :products, :sortable => :true
     indexes study.platforms.platform_name, :as => :platforms, :sortable => :true
     indexes study.activity_types.type_name, :as => :activity_types, :sortable => true
-    indexes study.date, :as => :study_date
+    indexes study.date, :as => :study_date, :type => :datetime
     indexes tags.tag_name, :as => :tags, :sortable => true
 	end
 

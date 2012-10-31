@@ -13,8 +13,8 @@ module SessionsHelper
 	end
 
 	def current_user?(user)
-    user == current_user
-  end
+    	user == current_user
+  	end
 
 	def signed_in?
 		!current_user.nil?
@@ -26,10 +26,10 @@ module SessionsHelper
 	end
 
 	def signed_in_user
-    unless signed_in?
-      flash[:error] = "Please sign in."
-      redirect_to signin_url
-    end
-  end
+    	unless signed_in?
+      		flash[:error] = "Please sign in."
+      		redirect_to signin_url
+    	end
+  	end
 
 end
