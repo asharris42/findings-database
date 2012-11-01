@@ -33,7 +33,11 @@ class StudiesController < ApplicationController
   end
 
   def index
-  	@studies = Study.by_date.paginate(page: params[:page])
+    if signed_in?
+      @studies = Study.by_date.paginate(page: params[:page])
+    else
+      @studies = Study.deployed.by_date.paginate(page: params[:page])
+    end
   end
 
   def edit

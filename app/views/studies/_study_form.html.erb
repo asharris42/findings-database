@@ -57,6 +57,11 @@
     <% end %>
   </div>
 </div>
+<div class="form-row">
+  <div class="form-row-column column-24">
+    <%= f.check_box :live %> <%=f.label :live, "Make study live?", { :class => "normal inline" } %>
+  </div>
+</div>
 
 <% if request.fullpath.include? "new" %>
 <% else %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121026163443) do
+ActiveRecord::Schema.define(:version => 20121101201851) do
 
   create_table "activity_types", :force => true do |t|
     t.string   "type_name"
@@ -25,11 +25,28 @@ ActiveRecord::Schema.define(:version => 20121026163443) do
     t.integer "study_id"
   end
 
+  create_table "delayed_jobs", :force => true do |t|
+    t.integer  "priority",   :default => 0
+    t.integer  "attempts",   :default => 0
+    t.text     "handler"
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.string   "queue"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+  end
+
+  add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
+
   create_table "findings", :force => true do |t|
     t.text     "content"
     t.integer  "study_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+    t.boolean  "delta",      :default => true, :null => false
   end
 
   add_index "findings", ["study_id", "content"], :name => "index_findings_on_study_id_and_content"
@@ -81,8 +98,10 @@ ActiveRecord::Schema.define(:version => 20121026163443) do
     t.string   "presentation"
     t.string   "researcher"
     t.string   "designer"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+    t.boolean  "delta",        :default => true,  :null => false
+    t.boolean  "live",         :default => false
   end
 
   add_index "studies", ["created_at"], :name => "index_studies_on_created_at"

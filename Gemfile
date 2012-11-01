@@ -14,6 +14,10 @@ gem 'bootstrap-will_paginate', '0.0.6'
 gem 'jquery-rails', '2.0.2'
 gem 'thinking-sphinx', '2.0.10'
 gem 'carrierwave'
+gem 'whenever', require: false
+gem 'ts-delayed-delta', '1.1.3',
+	:require => 'thinking_sphinx/deltas/delayed_delta'
+gem 'delayed_job_active_record'
 
 
 # Gems used only for assets and not required
@@ -37,9 +41,6 @@ end
 group :production do
 	gem 'pg', '0.12.2'
 end
-
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'

@@ -5,6 +5,7 @@
 				<p>
 					<strong>Date: </strong><%= @study.date.strftime("%m/%d/%Y") %>
 				</p>
+
 				<p>
 					<strong>Product: </strong>
 					<% first_product = true %>
@@ -18,6 +19,7 @@
 						<% end %>
 					<% end %>
 				</p>
+
 				<p>
 					<strong>Platform: </strong>
 					<% first_platform = true %>
@@ -31,6 +33,7 @@
 						<% end %>
 					<% end %>
 				</p>
+
 				<p>
 					<strong>Activity Type: </strong>
 					<% first_type = true %>
@@ -44,24 +47,40 @@
 						<% end %>
 					<% end %>
 				</p>
+
 				<p>
 					<strong>Description: </strong><%= @study.description %>
 				</p>
+
 				<p>
 					<strong>Participants: </strong><%= @study.participants %>
 				</p>
+
 				<p>
 					<strong>Researcher: </strong><%= @study.researcher %>
 				</p>
+
 				<p>
 					<strong>Designer: </strong><%= @study.designer %>
 				</p>
-				<% if @study.presentation_url.nil? %>
-				<% else %>
+
+				<% unless @study.presentation_url.nil? %>
 					<p>
 						<strong><%= link_to "Download Presentation", @study.presentation_url.to_s %></strong>
 					</p>
 				<% end %>
+
+				<% if signed_in? %>
+					<p>
+						<strong>Live: </strong>
+						<% if @study.live %>
+							Yes
+						<% else %>
+							No
+						<% end %>
+					</p>
+				<% end %>
+
 			</div>
 		</div>
 	</div>

@@ -5,3 +5,6 @@
 require File.expand_path('../config/application', __FILE__)
 
 FindingsDatabase::Application.load_tasks
+
+require 'thinking_sphinx/deltas/delayed_delta/tasks'
+

@@ -1,6 +1,6 @@
 class Study < ActiveRecord::Base
 # Need to handle case-insensitity of name uniqueness validation
-  attr_accessible :description, :designer, :participants, :presentation, :researcher, :date, :name, :product_ids, :platform_ids, :activity_type_ids, :findings_attributes
+  attr_accessible :description, :designer, :participants, :presentation, :researcher, :date, :name, :product_ids, :platform_ids, :activity_type_ids, :findings_attributes, :live
   has_many :findings, dependent: :destroy
   has_and_belongs_to_many :products
   has_and_belongs_to_many :platforms
@@ -14,6 +14,7 @@ class Study < ActiveRecord::Base
   scope :by_date, order("date DESC")
   scope :recent, limit(5).order("created_at DESC")
   scope :alphabetical, order("name ASC")
+  scope :deployed, self.where( :live => true )
 
   define_index do
     indexes :name, :as => :study_name, :sortable => true
@@ -21,6 +22,7 @@ class Study < ActiveRecord::Base
     indexes platforms.platform_name, :as => :platforms, :sortable => :true
     indexes findings.content, :as => :findings, :sortable => :true
     indexes activity_types.type_name, :as => :activity_types, :sortable => true
+    set_property :delta => true
 	end
 
 end

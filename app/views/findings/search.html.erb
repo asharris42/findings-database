@@ -5,7 +5,7 @@
 <% @searched_conditions.each do |key, value| %>
   <% value.each do |itemkey, item| %>
     <% item.each do |real_item| %>
-      <%= content_tag "div", '', class: "hide #{key}SearchData", data: { searched: "#{real_item}" } %>
+      <%= content_tag "div", '', id: "#{key}", class: "hide #{key}SearchData", data: { searched: "#{real_item}" } %>
     <% end %>
   <% end %>
 <% end %>
@@ -23,7 +23,6 @@
   		<%= render @findings %>
   	</div>
 	</div>
-  <%= "#{@searched_conditions}" %>
 	<%= will_paginate @findings %>
 <% else %>
 	No findings found.

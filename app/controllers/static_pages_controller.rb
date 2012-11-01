@@ -2,7 +2,11 @@ class StaticPagesController < ApplicationController
   before_filter :signed_in_user, only: [:admin_panel]
 
   def home
-  	@recent_studies = Study.recent
+  	if signed_in?
+      @recent_studies = Study.recent
+    else
+      @recent_studies = Study.deployed.recent
+    end
   end
 
   def help
@@ -13,6 +17,5 @@ class StaticPagesController < ApplicationController
   end
 
   def admin_panel
-
   end
 end
