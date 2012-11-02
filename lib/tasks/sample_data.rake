@@ -33,7 +33,8 @@ namespace :db do
                    date: date,
                    product_ids: rand(1..5),
                    platform_ids: rand(1..7),
-                   activity_type_ids: rand(1..4))
+                   activity_type_ids: rand(1..4),
+                   live: true)
     end
 
     studies = Study.all(limit: 10)

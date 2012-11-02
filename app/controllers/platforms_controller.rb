@@ -31,7 +31,11 @@ class PlatformsController < ApplicationController
 
   def show
   	@platform = Platform.find(params[:id])
-    @studies = @platform.studies.by_date.paginate(page: params[:page])
+    if signed_in?
+      @studies = @platform.studies.by_date.paginate(page: params[:page])
+    else
+      @studies = @platform.studies.deployed.by_date.paginate(page: params[:page])
+    end
   end
 
   def index

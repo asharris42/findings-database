@@ -31,7 +31,11 @@ class ProductsController < ApplicationController
 
   def show
   	@product = Product.find(params[:id])
-    @studies = @product.studies.by_date.paginate(page: params[:page])
+    if signed_in?
+      @studies = @product.studies.by_date.paginate(page: params[:page])
+    else
+      @studies = @product.studies.deployed.by_date.paginate(page: params[:page])
+    end
   end
 
   def index

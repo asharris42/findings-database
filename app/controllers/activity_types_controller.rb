@@ -31,7 +31,11 @@ class ActivityTypesController < ApplicationController
 
   def show
   	@activity_type = ActivityType.find(params[:id])
-    @studies = @activity_type.studies.by_date.paginate(page: params[:page])
+    if signed_in?
+      @studies = @activity_type.studies.by_date.paginate(page: params[:page])
+    else
+      @studies = @activity_type.studies.deployed.by_date.paginate(page: params[:page])
+    end
   end
 
   def index
