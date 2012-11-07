@@ -1,3 +1,5 @@
+<%= render 'shared/platform_error_messages' %>
+
 <%= form_for(@platform) do |f| %>
 
       <div class="form-row">
@@ -18,7 +20,7 @@
         <div class="form-row-column column-12">
           <div class="symphony">
             <div class="btn-bg">
-              <% if request.fullpath.include? "new" %>
+              <% if (params[:action] == 'new') | (params[:action] == 'create') %>
                 <%= f.submit "Create platform" %>
               <% else %>
                 <%= f.submit "Edit platform" %>

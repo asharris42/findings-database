@@ -1,11 +1,4 @@
 FindingsDatabase::Application.routes.draw do
-  get "platforms/show"
-
-  get "products/show"
-
-  get "activity_types/new"
-
-  get "users/new"
 
   resources :studies
   resources :findings
@@ -20,13 +13,11 @@ FindingsDatabase::Application.routes.draw do
   root to: 'static_pages#home'
 
   match '/help', to: 'static_pages#help'
-  match '/create', to: 'studies#new'
-  match '/all_findings', to: 'static_pages#findings'
-  match '/signup', to: 'users#new'
   match '/signin', to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
   match '/finding_search', to: 'findings#search'
   match '/admin_panel', to: 'static_pages#admin_panel'
+  match 'studies/:id/create_findings' => 'studies#create_findings', :as => :create_findings
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

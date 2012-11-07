@@ -14,7 +14,17 @@
 
 <div class="table-data">
 	<div class="table-data-content">
-  	<%= render @studies %>
+  	<% if signed_in? %>
+  		<%= render 'studies_logged_in' %>
+  	<% else %>
+  		<ul class="table-data-header">
+      	<li class="column-11"><a class="sorter" id="study">Study</a></li>
+      	<li class="column-3"><a class="sorter" id="date">Date</a></li>
+      	<li class="column-5"><a class="sorter" id="product">Product</a></li>
+      	<li class="column-5"><a class="sorter" id="platform">Platform</a></li>
+    	</ul>
+  		<%= render @studies %>
+  	<% end %>
 	</div>
 </div>
 

@@ -1,0 +1,11 @@
+Date Search
+Improve creation flow (make findings addable as part of the initial creation flow, and build for Powerpoint/text import of findings)
+Create functionality to allow tags to be added to and removed from findings
+Make sure children are destroyed on parent's destruction appropriately
+Ensure reindexing is happening appropriately
+Build a friendly redirect system after logging in or out
+Date format issue - database is only accepting data in the form of dd/mm/yyyy, not mm/dd/yyyy
+General quality improvements, removal of placeholder text
+Rebranding?
+Quality of finding?
+Tie a finding to another finding?

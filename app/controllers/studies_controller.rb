@@ -11,7 +11,7 @@ class StudiesController < ApplicationController
   def create
   	@study = Study.new(params[:study])
   	if @study.save
-  		flash[:success] = "New study created!"
+  		flash[:confirmation] = "New study created!"
   		redirect_to @study
   	else
       @products = Product.alphabetical
@@ -21,15 +21,21 @@ class StudiesController < ApplicationController
   	end
   end
 
+  def create_findings
+    @study = Study.find(params[:id])
+  end
+
   def show
   	@study = Study.find(params[:id])
     @findings = @study.findings.paginate(page: params[:page])
   end
 
   def destroy
-  	Study.find(params[:id]).destroy
-  	flash[:success] = "Study deleted."
-  	redirect_to studies_path
+    target_study = Study.find(params[:id])
+    study_name = target_study.name
+  	target_study.destroy
+  	flash[:confirmation] = "#{study_name} deleted."
+  	redirect_to studies_url
   end
 
   def index
@@ -50,7 +56,7 @@ class StudiesController < ApplicationController
   def update
     @study = Study.find(params[:id])
     if @study.update_attributes(params[:study])
-      flash[:success] = "Profile updated"
+      flash[:confirmation] = "Study updated."
       redirect_to @study
     else
       @products = Product.all

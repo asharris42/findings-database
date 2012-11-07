@@ -22,8 +22,8 @@
 	<div class="table-data-content">
 		<% @users.each do |user| %>
     	<ul class="table-data-row">
-    		<li class="column-20"><%= link_to user.name, user %></li>
-    		<li class="column-4">
+    		<li class="column-21"><%= link_to user.name, user %></li>
+    		<li class="column-3">
     			<% if current_user.admin? || current_user?(user) %>
     				<%= link_to "Edit", edit_user_path(user) %>
     			<% end %>

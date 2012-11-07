@@ -1,3 +1,26 @@
+<% platform_text = "" %>
+<% product_text = "" %>
 <ul class="table-data-row">
-  <li class="column-24"><%= link_to study.name, study %></li>
+  <li class="column-11 study"><%= link_to study.name, study %></li>
+  <li class="column-3 date"><%= study.date %></li>
+  <li class="column-5 product">
+  	<% study.products.each do |product| %>
+  		<% if product_text.empty? %>
+  			<% product_text = product.product_name %>
+  		<% else %>
+  			<% product_text = product_text << "; " << product.product_name %>
+  		<% end %>
+  	<% end %>
+  	<%= product_text %>
+  </li>
+  <li class="column-5 platform">
+  	<% study.platforms.each do |platform| %>
+  		<% if platform_text.empty? %>
+  			<% platform_text = platform.platform_name %>
+  		<% else %>
+  			<% platform_text = platform_text << "; " << platform.platform_name %>
+  		<% end %>
+  	<% end %>
+  	<%= platform_text %>
+  </li>
 </ul>

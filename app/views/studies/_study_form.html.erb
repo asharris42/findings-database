@@ -63,8 +63,7 @@
   </div>
 </div>
 
-<% if request.fullpath.include? "new" %>
-<% else %>
+<% unless (params[:action] == 'new') | (params[:action] == 'create') %>
   <div class="form-row">
     <div class="form-row-column column-24">
       <label for="findings">Findings</label>
@@ -83,6 +82,12 @@
 
   <div class="form-row">
     <div class="form-row-column column-24">
+      <%= link_to "Undo Delete Finding", "#", :class => "undo_delete_finding" %>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-row-column column-24">
       <%= link_to 'Remove Study', @study, :confirm=> 'Are you sure?', :method=> :delete %>
     </div>
   </div>
@@ -91,7 +96,7 @@
 <div class="form-row">
   <div class="symphony">
     <div class="btn-bg">
-      <% if request.fullpath.include? "new" %>
+      <% if (params[:action] == 'new') | (params[:action] == 'create') %>
         <%= f.submit "Create study", class: "btn-bg" %>
       <% else %>
         <%= f.submit "Save changes", class: "btn-bg" %>

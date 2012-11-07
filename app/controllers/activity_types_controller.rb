@@ -43,8 +43,10 @@ class ActivityTypesController < ApplicationController
   end
 
   def destroy
-  	ActivityType.find(params[:id]).destroy
-    flash[:confirmation] = "Activity type deleted."
+  	target_activity_type = ActivityType.find(params[:id])
+    type_name = target_activity_type.type_name
+    target_activity_type.destroy
+    flash[:confirmation] = "#{type_name} deleted."
     redirect_to activity_types_url
   end
 end

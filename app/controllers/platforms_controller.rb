@@ -43,8 +43,10 @@ class PlatformsController < ApplicationController
   end
 
   def destroy
-  	Platform.find(params[:id]).destroy
-    flash[:confirmation] = "Platform deleted."
+  	target_platform = Platform.find(params[:id])
+    platform_name = target_platform.platform_name
+    target_platform.destroy
+    flash[:confirmation] = "#{platform_name} deleted."
     redirect_to platforms_url
   end
 

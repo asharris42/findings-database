@@ -1,0 +1,14 @@
+<% if @platform.errors.any? %>
+  <div class="message-banner error-banner" id="error_explanation">
+    <div class="banner-content">
+      <p>
+        <strong>The form contains <%= pluralize(@platform.errors.count, "error") %>.</strong>
+      </p>
+      <ul>
+        <% @platform.errors.full_messages.each do |msg| %>
+          <li><%= msg %>.</li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>

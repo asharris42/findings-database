@@ -43,8 +43,10 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-  	Product.find(params[:id]).destroy
-    flash[:confirmation] = "Product deleted."
+  	target_product = Product.find(params[:id])
+    product_name = target_product.product_name
+    target_product.destroy
+    flash[:confirmation] = "#{product_name} deleted."
     redirect_to products_url
   end
 end
